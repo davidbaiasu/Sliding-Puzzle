@@ -12,10 +12,13 @@ let currEmptyRow = ROWS - 1;
 let currEmptyCol = COLS - 1;
 
 const table = document.getElementById('id_table');
+const moveCounter = document.getElementById('move_count_span');
 
 window.addEventListener('keydown', (event) => {
 	
 	event.preventDefault();
+	
+	let moveFlag = false;
 	
 	if( event.key === 'ArrowUp' && currEmptyRow !== ROWS - 1 ){
 		
@@ -23,6 +26,8 @@ window.addEventListener('keydown', (event) => {
 		currEmptyRow += 1;
 		tableValues[currEmptyRow][currEmptyCol] = 0;
 		console.log(tableValues);
+		
+		moveFlag = true;
 		
 	}
 	
@@ -33,6 +38,8 @@ window.addEventListener('keydown', (event) => {
 		tableValues[currEmptyRow][currEmptyCol] = 0;
 		console.log(tableValues);
 		
+		moveFlag = true;
+		
 	}
 	
 	else if( event.key === 'ArrowDown' && currEmptyRow !== 0 ){
@@ -41,6 +48,8 @@ window.addEventListener('keydown', (event) => {
 		currEmptyRow -= 1;
 		tableValues[currEmptyRow][currEmptyCol] = 0;
 		console.log(tableValues);
+		
+		moveFlag = true;
 		
 	}
 	
@@ -51,13 +60,21 @@ window.addEventListener('keydown', (event) => {
 		tableValues[currEmptyRow][currEmptyCol] = 0;
 		console.log(tableValues);
 		
+		moveFlag = true;
+		
 	}
 	
 	else{
 		return;
 	}
 	
-	updateTableHTML();
+	if( moveFlag === true ){
+		
+		moveCount++;
+		moveCounter.innerText = moveCount;
+		updateTableHTML();
+		
+	}
 	
 });
 
@@ -89,3 +106,9 @@ function updateTableHTML(){
     }
 	
 }
+
+// shuffle function
+
+// check win and game state
+
+// move count
