@@ -60,9 +60,23 @@ body {
     outline: none; 
 }
 
-#move_count_para{
-	
+#move_count_para {
+	 
 	text-align: center;
 	font-size: 30px;
+	
+}
+
+#id_button_reset {
+
+	text-align: center;
+	font-size: 20px;
+	
+}
+
+#id_button_reset:focus {
+
+	border-color: orange;
+    outline: none; 
 	
 }

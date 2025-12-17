@@ -171,6 +171,22 @@ function checkWin(tableValues){
 	
 }
 
-// check win and game state
+function resetGame(){
+	
+	let currEmptyRow = ROWS - 1;
+	let currEmptyCol = COLS - 1;
+	let gameOver = false;
+	
+	let tableValues = [
+		[1, 2, 3],
+		[4, 5, 6],
+		[7, 8, 0]
+	]
+	
+	shuffleTable(SHUFFLE_TIMES);
+	moveCount = 0;
+	moveCounter.innerText = moveCount;
+	
+}
 
 // Reset button
