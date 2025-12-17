@@ -14,6 +14,7 @@ let tableValues = [
 let moveCount = 0;
 let currEmptyRow = ROWS - 1;
 let currEmptyCol = COLS - 1;
+let gameOver = false;
 
 window.onload = () => {
 	
@@ -29,7 +30,15 @@ window.addEventListener('keydown', (event) => {
 	
 	event.preventDefault();
 	
+	if( gameOver === true ){
+		return;
+	}
+	
 	executeMove(event.key);
+	
+	if(checkWin(tableValues)){
+		console.log("yupii");
+	}
 	
 });
 
@@ -42,7 +51,6 @@ function executeMove(direction){
 		tableValues[currEmptyRow][currEmptyCol] = tableValues[currEmptyRow + 1][currEmptyCol];
 		currEmptyRow += 1;
 		tableValues[currEmptyRow][currEmptyCol] = 0;
-		console.log(tableValues);
 		
 		moveFlag = true;
 		
@@ -53,7 +61,6 @@ function executeMove(direction){
 		tableValues[currEmptyRow][currEmptyCol] = tableValues[currEmptyRow][currEmptyCol - 1];
 		currEmptyCol -= 1;
 		tableValues[currEmptyRow][currEmptyCol] = 0;
-		console.log(tableValues);
 		
 		moveFlag = true;
 		
@@ -64,7 +71,6 @@ function executeMove(direction){
 		tableValues[currEmptyRow][currEmptyCol] = tableValues[currEmptyRow - 1][currEmptyCol];
 		currEmptyRow -= 1;
 		tableValues[currEmptyRow][currEmptyCol] = 0;
-		console.log(tableValues);
 		
 		moveFlag = true;
 		
@@ -75,7 +81,6 @@ function executeMove(direction){
 		tableValues[currEmptyRow][currEmptyCol] = tableValues[currEmptyRow][currEmptyCol + 1];
 		currEmptyCol += 1;
 		tableValues[currEmptyRow][currEmptyCol] = 0;
-		console.log(tableValues);
 		
 		moveFlag = true;
 		
@@ -141,8 +146,31 @@ function shuffleTable(times){
 	
 	}
 	
-	//updateTableHTML();
+}
+
+function checkWin(tableValues){
+	
+	if ( tableValues[ROWS - 1][COLS - 1] !== 0 ) {
+        return false;
+    }
+	
+	for( let i = 0; i < ROWS * COLS - 2; i++ ){
+		
+		let row = Math.floor(i / COLS);
+		let col = i % COLS;
+	
+		if( tableValues[row][col] !== (i + 1) ){
+			return false;
+		}
+	
+	}
+	
+	gameOver = true;
+	
+	return true;
 	
 }
 
 // check win and game state
+
+// Reset button
