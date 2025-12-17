@@ -4,6 +4,7 @@ const SHUFFLE_TIMES = 150;
 
 const table = document.getElementById('id_table');
 const moveCounter = document.getElementById('move_count_span');
+const highScoreID = document.getElementById('high_score_span');
 
 let tableValues = [
 	[1, 2, 3],
@@ -12,7 +13,7 @@ let tableValues = [
 ]
 
 let moveCount = 0;
-let highScore = 0;
+let highScore = Number.MAX_SAFE_INTEGER;
 let currEmptyRow = ROWS - 1;
 let currEmptyCol = COLS - 1;
 let gameOver = false;
@@ -38,7 +39,11 @@ window.addEventListener('keydown', (event) => {
 	executeMove(event.key);
 	
 	if(checkWin(tableValues)){
+		
+		highScore = Math.min(highScore, moveCount);
 		console.log("yupii");
+		console.log(highScore);
+		
 	}
 	
 });
@@ -187,6 +192,8 @@ function resetGame(){
 	shuffleTable(SHUFFLE_TIMES);
 	moveCount = 0;
 	moveCounter.innerText = moveCount;
+	
+	highScoreID.innerText = highScore;
 	
 }
 

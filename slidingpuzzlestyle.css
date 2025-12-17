@@ -64,6 +64,15 @@ body {
 	 
 	text-align: center;
 	font-size: 30px;
+	margin-bottom: 0px;
+	
+}
+
+#high_score_para {
+	
+	text-align: center;
+	font-size: 20px;
+	margin-top: 5px;
 	
 }
 
