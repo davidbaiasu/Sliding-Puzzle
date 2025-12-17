@@ -1,3 +1,11 @@
+body {
+	
+    margin: 0;
+	padding: 0;
+	background-color: white;
+
+}
+
 .cell {
 	
 	width: 100px;
@@ -10,7 +18,8 @@
 
 .class_table_cell{
 
-	background-color: lightblue;
+	background-color: #a86718;
+	border: 5px solid;
 	
 }
 
@@ -20,11 +29,35 @@
 	
 }
 
+#id_game_container {
+	
+    background-color: orange;
+    
+    width: 400px;
+    margin: 0 auto;
+	border: 3px solid;
+    
+    padding-top: 50px;       
+    padding-bottom: 30px;    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	
+}
+
 #id_table{
 
 	margin-left: auto;
 	margin-right: auto;
+	background-color: #a86718;
 	
+}
+
+#id_table:focus {
+    
+    border-color: orange;
+    outline: none; 
 }
 
 #move_count_para{

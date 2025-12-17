@@ -145,7 +145,4 @@ function shuffleTable(times){
 	
 }
 
-
-// shuffle function
-
 // check win and game state
