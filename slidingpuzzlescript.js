@@ -193,7 +193,9 @@ function resetGame(){
 	moveCount = 0;
 	moveCounter.innerText = moveCount;
 	
-	highScoreID.innerText = highScore;
+	if( highScore !== Number.MAX_SAFE_INTEGER ){
+		highScoreID.innerText = highScore;
+	}
 	
 }
 

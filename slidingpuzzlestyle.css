@@ -78,6 +78,16 @@ body {
 	
 }
 
+#div_buttons {
+	
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+	
+}
+
 #id_button_reset {
 
 	text-align: center;
