@@ -1,6 +1,6 @@
 const ROWS = 3;
 const COLS = 3;
-const SHUFFLE_TIMES = 100;
+const SHUFFLE_TIMES = 150;
 
 const table = document.getElementById('id_table');
 const moveCounter = document.getElementById('move_count_span');
@@ -12,6 +12,7 @@ let tableValues = [
 ]
 
 let moveCount = 0;
+let highScore = 0;
 let currEmptyRow = ROWS - 1;
 let currEmptyCol = COLS - 1;
 let gameOver = false;
@@ -173,11 +174,11 @@ function checkWin(tableValues){
 
 function resetGame(){
 	
-	let currEmptyRow = ROWS - 1;
-	let currEmptyCol = COLS - 1;
-	let gameOver = false;
+	currEmptyRow = ROWS - 1;
+	currEmptyCol = COLS - 1;
+	gameOver = false;
 	
-	let tableValues = [
+	tableValues = [
 		[1, 2, 3],
 		[4, 5, 6],
 		[7, 8, 0]
@@ -189,4 +190,3 @@ function resetGame(){
 	
 }
 
-// Reset button
