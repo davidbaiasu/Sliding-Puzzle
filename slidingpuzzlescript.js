@@ -42,7 +42,6 @@ window.addEventListener('keydown', (event) => {
 	if( moveHappened == true ){
 		
 		moveStack.push(event.key);
-		console.log(moveStack);
 		
 	}
 	
@@ -208,7 +207,7 @@ function resetGame(){
 
 function rewindMove(){
 	
-	if( moveCount == 0 ){
+	if( moveCount == 0 || gameOver == true ){
 		return;
 	}
 	
