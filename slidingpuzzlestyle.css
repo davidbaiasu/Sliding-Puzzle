@@ -1,0 +1,27 @@
+.cell {
+	
+	width: 100px;
+	height: 100px;
+	border: 2px solid;
+	text-align: center;
+	font-size: 60px;
+	
+}
+
+.class_table_cell{
+
+	background-color: lightblue;
+	
+}
+
+.class_empty_cell{
+
+	background-color: lightgray;
+	
+}
+
+#grid{
+
+	
+
+}
