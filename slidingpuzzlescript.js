@@ -13,6 +13,7 @@ let tableValues = [
 ]
 
 let moveCount = 0;
+let moveStack = [];
 let highScore = Number.MAX_SAFE_INTEGER;
 let currEmptyRow = ROWS - 1;
 let currEmptyCol = COLS - 1;
@@ -36,13 +37,18 @@ window.addEventListener('keydown', (event) => {
 		return;
 	}
 	
-	executeMove(event.key);
+	let moveHappened = executeMove(event.key);
+	
+	if( moveHappened == true ){
+		
+		moveStack.push(event.key);
+		console.log(moveStack);
+		
+	}
 	
 	if(checkWin(tableValues)){
 		
 		highScore = Math.min(highScore, moveCount);
-		console.log("yupii");
-		console.log(highScore);
 		
 	}
 	
@@ -192,10 +198,40 @@ function resetGame(){
 	shuffleTable(SHUFFLE_TIMES);
 	moveCount = 0;
 	moveCounter.innerText = moveCount;
+	moveStack = [];
 	
 	if( highScore !== Number.MAX_SAFE_INTEGER ){
 		highScoreID.innerText = highScore;
 	}
+	
+}
+
+function rewindMove(){
+	
+	if( moveCount == 0 ){
+		return;
+	}
+	
+	const lastMove = moveStack.pop();
+	
+	if( lastMove === 'ArrowUp' ){
+		executeMove('ArrowDown');
+	}
+	
+	else if( lastMove === 'ArrowLeft' ){
+		executeMove('ArrowRight');
+	}
+	
+	else if( lastMove === 'ArrowDown' ){
+		executeMove('ArrowUp');
+	}
+	
+	else if( lastMove === 'ArrowRight' ){
+		executeMove('ArrowLeft');
+	}
+	
+	moveCount -= 2;
+	moveCounter.innerText = moveCount;
 	
 }
 

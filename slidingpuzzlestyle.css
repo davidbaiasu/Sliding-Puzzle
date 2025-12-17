@@ -88,7 +88,7 @@ body {
 	
 }
 
-#id_button_reset {
+#id_button_reset, #id_button_rewind{
 
 	text-align: center;
 	font-size: 20px;
