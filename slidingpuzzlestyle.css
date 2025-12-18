@@ -92,12 +92,13 @@ body {
 
 	text-align: center;
 	font-size: 20px;
+	background-color: #cf883c;
+	cursor: pointer;
 	
 }
 
 #id_button_reset:focus {
 
-	border-color: orange;
     outline: none; 
 	
 }
